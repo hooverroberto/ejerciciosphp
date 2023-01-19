@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background: rgb(133, 11, 72);
+    color: white;
+    font-family: sans-serif;
+  }
+  
+  form {
+    width: 350px;
+    margin: auto;
+    background: rgb(0, 123, 255);
+    padding: 20px;
+    margin-top: 100px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  label, input,select {
+    width: 100%;
+    display: block;
+    font-size: 1.2em;
+  }
+  input, select {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  input[type="submit"] {
+    width: 30%;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 123, 255);
+    border: none;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .resultado{
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: rgb(0, 123, 255);
+    margin: auto;
+    padding: 30px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+
+  .res{
+    margin-bottom: 50px;
+  }
+
+  a{
+    margin-top: 50px;
+    border: 1px solid #fff;
+    color: rgb(0, 123, 255);
+    text-decoration: none;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  a:hover{
+    background: rgb(120, 0, 124);
+    color: #fff;
+    border: none;
+  }
+
+  hr{
+    width: 90%;
+  }
+
+  h2{
+    text-align: center;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 100px) {
+    hr{
+        max-width: 500px;
+      }
+  }
