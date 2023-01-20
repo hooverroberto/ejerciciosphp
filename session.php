@@ -33,12 +33,11 @@ class Session{
             && is_string($attribute)
             && isset($_SESSION[$attribute])
         ){
-            return $_SESSION[$attribute];
-            
+            return $_SESSION[$attribute];            
         }
-        return null;
+
     }
-    function destroySession($attribute)
+    function destroySession()
     {
         session_destroy();   
     }

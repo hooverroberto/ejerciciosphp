@@ -12,44 +12,30 @@
 <body>
 
     <div class="container">
-        <h1 class="mt-5 mb-5">Registor de alumnos</h1>
+        <h1 class="mt-5 mb-5">Registro producto</h1>
         <form method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre de producto</label>
                     <input type="text" class="form-control" name="nombre" placeholder="Nombre">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control"  name="apellido" placeholder="Apellido">
-                </div>
+                </div>            
             </div>
             <div class="form-group">
-                <label for="carnet">Carnet</label>
-                <input type="text" class="form-control" name="carnet" placeholder="Carnet">
+                <label for="codigo">Código del producto</label>
+                <input type="text" class="form-control" name="codigo" placeholder="Código">
             </div>
             <div class="form-group">
-                <label for="inputAddress2">Nacimiento</label>
-                <input type="text" class="form-control" name="nacimiento" placeholder="Nacimiento">
+                <label for="precio">Precio del producto</label>
+                <input type="text" class="form-control" name="precio" placeholder="Precio">
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">Teléfono</label>
-                    <input type="text" class="form-control" id="inputCity" name="telefono" placeholder="Teléfono">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputState">Dirección</label>
-                    <input type="text" class="form-control" id="inputCity" name="direccion" placeholder="Dirección">
-                </div>
-            </div>
-
-            <input class="btn btn-primary" value="Enviar Datos" name="enviar" type="submit" />
+            
+            <input class="btn btn-primary" value="Guardar producto" name="enviar" type="submit" />
         </form>
     </div>
 
     <?php
 
-    $base_datos = mysqli_connect("localhost","root","","colegio");
+    $base_datos = mysqli_connect("localhost","root","","tienda");
     if($base_datos){
         echo '<div class="alert alert-info text-center mt-5" role="alert">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" color="green" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
@@ -62,17 +48,14 @@
 
     if(isset($_POST['enviar'])){
         $nombre=$_POST["nombre"];
-        $apellido=$_POST["apellido"];
-        $carnet=$_POST["carnet"];
-        $nacimiento=$_POST["nacimiento"];
-        $telefono=$_POST["telefono"];
-        $direccion=$_POST["direccion"];
+        $codigo=$_POST["codigo"];
+        $precio=$_POST["precio"];     
 
 
-        $verificacion ="INSERT INTO `registro`(`nombre`, `apellido`, `carnet`, `nacimiento`, `telefono`, `direccion`)
-                        VALUES('$nombre', '$apellido', '$carnet', '$nacimiento','$telefono', '$direccion')";
+        $verificacion ="INSERT INTO `producto`(`nombre`, `codigo`, `precio`)
+                        VALUES('$nombre','$codigo','$precio')";
                         $conexion =mysqli_query($base_datos, $verificacion);
-                        echo "Los datos del alumno $nombre <br>$apellido <br> fueron registrados con éxito";
+                        echo "Los datos del producto <br>$nombre <br>$codigo<br>$precio<br> fueron registrados con éxito";
     }
 
     ?>
