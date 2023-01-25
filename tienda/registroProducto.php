@@ -13,7 +13,7 @@
 
     <div class="container">
         <h1 class="mt-5 mb-5">Registro producto</h1>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nombre">Nombre de producto</label>
@@ -27,6 +27,10 @@
             <div class="form-group">
                 <label for="precio">Precio del producto</label>
                 <input type="text" class="form-control" name="precio" placeholder="Precio">
+            </div>
+            <div class="form-group">
+                <label for="imagen">Precio del producto</label>
+                <input type="file" required class="form-control" name="imagen">
             </div>
             
             <input class="btn btn-primary" value="Guardar producto" name="enviar" type="submit" />
@@ -49,13 +53,14 @@
     if(isset($_POST['enviar'])){
         $nombre=$_POST["nombre"];
         $codigo=$_POST["codigo"];
-        $precio=$_POST["precio"];     
+        $precio=$_POST["precio"];
+        $imagen = addslashes(file_get_contents($_FILES["imagen"]["tmp_name"]));     
 
 
-        $verificacion ="INSERT INTO `producto`(`nombre`, `codigo`, `precio`)
-                        VALUES('$nombre','$codigo','$precio')";
+        $verificacion ="INSERT INTO `producto`(`nombre`, `codigo`, `precio`, `imagen`)
+                        VALUES('$nombre','$codigo','$precio','$imagen')";
                         $conexion =mysqli_query($base_datos, $verificacion);
-                        echo "Los datos del producto <br>$nombre <br>$codigo<br>$precio<br> fueron registrados con éxito";
+                        echo "Los datos del producto <br>$nombre <br>$codigo<br>$precio<br> $imagen<br>fueron registrados con éxito";
     }
 
     ?>

@@ -22,10 +22,11 @@
 
         echo '<table class="table table-dark" border="2" cellpadding="2">
                 <tr>
-
+                    <th> <font face="Arial"> Id</font> </th>
                     <th> <font face="Arial"> Nombre</font> </th>
                     <th> <font face="Arial"> Código </font> </th>
-                    <th> <font face="Arial"> Precio </font> </th>                  
+                    <th> <font face="Arial"> Precio </font> </th> 
+                    <th> <font face="Arial"> Imagen </font> </th>                  
 
                 </tr>
             
@@ -33,15 +34,16 @@
 
         if($result = $mysqli->query($query)){
             while($row=$result->fetch_assoc()){
-                $fiel1name = $row ["nombre"];
-                $fiel2name = $row ["codigo"];
-                $fiel3name = $row ["precio"];
+                $fiel1name = $row["nombre"];
+                $fiel2name = $row["codigo"];
+                $fiel3name = $row["precio"];
+                $fiel4name = $row["imagen"];
                 
                 echo '<tr>
                     <td>'.$fiel1name.' </td>
                     <td>'.$fiel2name.' </td>
                     <td>'.$fiel3name.' </td>
-                    
+                    <td>'.$fiel4name.' </td>
                 </tr>';
             }
             $result->free();
